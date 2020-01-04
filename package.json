@@ -1,0 +1,28 @@
+{
+  "name": "lastfm-viz",
+  "version": "1.0.0",
+  "description": "a simple visualizer for lastfm listening history. pet project to explore popular web dev stacks.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/epleaner/lastfm-viz.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/epleaner/lastfm-viz/issues"
+  },
+  "homepage": "https://github.com/epleaner/lastfm-viz#readme",
+  "dependencies": {
+    "next": "^9.1.7",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}
