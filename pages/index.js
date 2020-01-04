@@ -1,6 +1,10 @@
-import withLayout from "../components/layout";
+import Layout from "../components/layout";
 import PostList from "../components/blog/postList";
 
-const Index = () => <p>index page</p>;
+const Index = () => (
+  <Layout>
+    <p>index page</p>
+  </Layout>
+);
 
-export default withLayout(Index);
+export default Index;

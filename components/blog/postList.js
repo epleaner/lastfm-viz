@@ -10,9 +10,8 @@ const PostList = props => {
       ))}
       <style jsx>
         {`
-          li {
-            list-style: none;
-            margin: 5px 0;
+          ul {
+            padding: 0;
           }
         `}
       </style>
