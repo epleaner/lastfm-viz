@@ -7,6 +7,12 @@ const Blog = props => (
   <Layout>
     <h1>blog page</h1>
     <PostList shows={props.shows} />
+
+    <style jsx>{`
+      h1 {
+        text-decoration: underline;
+      }
+    `}</style>
   </Layout>
 );
 

@@ -8,6 +8,14 @@ const PostList = props => {
       {shows.map(show => (
         <PostLink key={show.id} id={show.id} name={show.name} />
       ))}
+      <style jsx>
+        {`
+          li {
+            list-style: none;
+            margin: 5px 0;
+          }
+        `}
+      </style>
     </ul>
   );
 };
