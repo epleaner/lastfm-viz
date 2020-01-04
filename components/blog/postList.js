@@ -1,11 +1,15 @@
 import PostLink from "./postLink";
 
-const PostList = () => (
-  <ul>
-    <PostLink id="1" />
-    <PostLink id="2" />
-    <PostLink id="3" />
-  </ul>
-);
+const PostList = props => {
+  const {shows} = props;
+
+  return (
+    <ul>
+      {shows.map(show => (
+        <PostLink key={show.id} id={show.id} name={show.name} />
+      ))}
+    </ul>
+  );
+};
 
 export default PostList;
