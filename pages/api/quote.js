@@ -1,8 +1,8 @@
-import allQuotes from "../../static/quotes.json";
-import {sample} from "lodash";
+import allQuotes from "../../assets/quotes.json";
+import { sample } from "lodash";
 
 export default (req, res) => {
-  const {author} = req.query;
+  const { author } = req.query;
 
   let quotes = allQuotes;
 
