@@ -15,3 +15,16 @@ a simple visualizer for lastfm listening history. pet project to explore popular
 - css preprocessor: sass, less
 - build tools: webpack, browserify, gulp, grunt
 - apollo/graphql
+
+atom plugins:
+
+autocomplete
+tsx beautify
+better beautify (doesn't hang)
+minimize blocks
+auto import
+always single quotes
+click into implementation
+move lines
+multicursor drag
+better shortcut for rename etc
