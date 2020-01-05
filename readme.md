@@ -4,27 +4,14 @@ a simple visualizer for lastfm listening history. pet project to explore popular
 
 # tech
 
-- js es6/es7
-- typescript
-- functional programming
-- react
-- nextjs
+- js es6/es7 √
+- typescript √
+- functional programming √
+- react √
+- nextjs √
 - state management: redux, mobx
 - css3
 - html5
 - css preprocessor: sass, less
 - build tools: webpack, browserify, gulp, grunt
 - apollo/graphql
-
-atom plugins:
-
-autocomplete
-tsx beautify
-better beautify (doesn't hang)
-minimize blocks
-auto import
-always single quotes
-click into implementation
-move lines
-multicursor drag
-better shortcut for rename etc
