@@ -1,23 +1,15 @@
 import fetch from "isomorphic-unfetch";
 import useSWR from "swr";
-import { APIKey } from "../../secrets.json";
 import ArtistList from "./artistList";
+import withArtistFetch from "../../components/lastfm-viz/artistFetch";
 
-const fetchUrl = `https://ws.audioscrobbler.com/2.0/?method=user.getweeklyartistchart&user=pleanut&api_key=${APIKey}&format=json`;
+const LastFMPage = props => {
+  const { artists, loading, error } = props;
 
-const fetcher = url => {
-  return fetch(url).then(r => r.json());
-};
-
-const LastFMPage = () => {
-  const { data, error } = useSWR(fetchUrl, fetcher);
-
-  if (!data) return <span>Loading...</span>;
+  if (loading) return <span>Loading...</span>;
   if (error) return <span>Failed to fetch: ${error}</span>;
 
-  const { weeklyartistchart } = data;
-
-  return <ArtistList artists={weeklyartistchart.artist} />;
+  return <ArtistList artists={artists} />;
 };
 
-export default LastFMPage;
+export default withArtistFetch(LastFMPage);
