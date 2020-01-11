@@ -1,34 +1,33 @@
-import fetch from "isomorphic-unfetch";
-import useSWR from "swr";
+import axios from "axios";
 import { APIKey } from "../../secrets.json";
-import ArtistFetch from "./artistFetch";
 
-const fetchUrl = `https://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&mbid=&api_key=${APIKey}&format=json`;
+const SimilarArtistFetch = {
+  fetchSimilar: async (name, mbid) => {
+    const url = "https://ws.audioscrobbler.com/2.0/?method=artist.getsimilar";
 
-const fetcher = url => {
-  return fetch(url).then(r => r.json());
-};
+    const { data, error } = await axios.get(url, {
+      params: {
+        mbid: mbid,
+        name: name,
+        autocorrect: 1,
+        api_key: APIKey,
+        format: "json"
+      }
+    });
 
-const insertMbidIntoFetchUrl = mbid =>
-  fetchUrl.replace("&mbid=&", `&mbid=${mbid}&`);
-
-const withSimilarArtistFetch = Page => {
-  return () => {
-    const fetchResponse = ArtistFetch.getTopArtists();
-    const { artists, loading, error } = fetchResponse;
-
-    if (loading || error) return <Page {...fetchResponse} />;
-
-    const topThreeArtists = artists.slice(0, 3);
-
-    for (let { mbid } of topThreeArtists) {
-      const urlWithMbid = insertMbidIntoFetchUrl(mbid);
-      const { data, error } = useSWR(urlWithMbid, fetcher);
-      console.log(data, error);
+    if (error || data.error) {
+      return {
+        error: error || {
+          code: data.error,
+          message: data?.message
+        }
+      };
     }
 
-    return <Page similarArtists={[1, 2, 3]} {...fetchResponse} />;
-  };
+    return {
+      similarArtists: data?.similarartists.artist
+    };
+  }
 };
 
-export default withSimilarArtistFetch;
+export default SimilarArtistFetch;
