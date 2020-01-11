@@ -8,18 +8,16 @@ const fetcher = url => {
   return fetch(url).then(r => r.json());
 };
 
-const withArtistFetch = Page => {
-  return () => {
-    const { data, error } = useSWR(fetchUrl, fetcher);
+const useArtistFetch = () => {
+  const { data, error } = useSWR(fetchUrl, fetcher);
 
-    const pageProps = {
-      loading: !data,
-      error,
-      artists: data?.weeklyartistchart.artist
-    };
-
-    return <Page {...pageProps} />;
+  const fetched = {
+    loading: !data,
+    error,
+    artists: data?.weeklyartistchart.artist
   };
+
+  return fetched;
 };
 
-export default withArtistFetch;
+export default useArtistFetch;
