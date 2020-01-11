@@ -15,7 +15,7 @@ const Header = () => (
     <Link href="/blog">
       <a style={linkStyle}>blog</a>
     </Link>
-    <Link href="/lastfm">
+    <Link href="/lastfm-viz">
       <a style={linkStyle}>lastfm</a>
     </Link>
   </div>
