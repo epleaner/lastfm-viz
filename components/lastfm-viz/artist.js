@@ -2,7 +2,15 @@ import { useState, useEffect } from "react";
 import SimilarArtistFetch from "../../components/lastfm-viz/similarArtistFetch";
 
 const Artist = props => {
-  const { artistKey, url, name, playcount, mbid, onMouseEnter } = props;
+  const {
+    artistKey,
+    url,
+    name,
+    playcount,
+    mbid,
+    onMouseEnter,
+    onFetchSimilarArtists
+  } = props;
 
   const [loading, setLoading] = useState(false);
   const [shouldFetchSimilar, setShouldFetchSimilar] = useState(false);
@@ -22,6 +30,7 @@ const Artist = props => {
           );
 
           setFetchedData(fetchedSimilarArtistData);
+          onFetchSimilarArtists(fetchedSimilarArtistData);
           setLoading(false);
         }
       };

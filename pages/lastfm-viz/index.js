@@ -1,12 +1,20 @@
-import ArtistList from "../../components/lastfm-viz/artistList";
-import useArtistFetch from "../../components/lastfm-viz/artistFetch";
+import ArtistSearch from "../../components/lastfm-viz/artistSearch";
+import SelectedArtistPanel from "../../components/lastfm-viz/selectedArtistPanel";
+import { useState } from "react";
 
 const LastFMPage = () => {
-  const { artists, loading, error } = useArtistFetch();
-  if (loading) return <span>Loading...</span>;
-  if (error) return <span>Failed to fetch: ${error}</span>;
+  const [artistFetchedData, setArtistFetchedData] = useState();
 
-  return <ArtistList artists={artists} />;
+  const onFetchSimilarArtists = fetchedData => {
+    setArtistFetchedData(fetchedData);
+  };
+
+  return (
+    <div>
+      <SelectedArtistPanel artistFetchedData={artistFetchedData} />
+      <ArtistSearch onFetchSimilarArtists={onFetchSimilarArtists} />
+    </div>
+  );
 };
 
 export default LastFMPage;
