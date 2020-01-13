@@ -13,7 +13,7 @@ const SimilarArtistsList = props => {
           {...artist}
           key={key}
           artistKey={key}
-          onFetchTopAlbums={onFetchTopAlbums}
+          onFetched={onFetchTopAlbums}
         />
       ))}
     </ul>

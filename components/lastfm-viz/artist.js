@@ -9,49 +9,43 @@ const Artist = props => {
     playcount,
     mbid,
     onMouseEnter,
-    onFetchSimilarArtists
+    fetcher,
+    onFetched,
+    buttonName,
+    render
   } = props;
 
   const [loading, setLoading] = useState(false);
-  const [shouldFetchSimilar, setShouldFetchSimilar] = useState(false);
+  const [shouldFetch, setShouldFetch] = useState(false);
   const [fetchedData, setFetchedData] = useState({});
 
-  const { error, similarArtists } = fetchedData;
+  const { error, data } = fetchedData;
 
   useEffect(
     () => {
-      const fetcher = async () => {
-        if (shouldFetchSimilar) {
-          setShouldFetchSimilar(false);
+      (async () => {
+        if (shouldFetch) {
+          setShouldFetch(false);
           setLoading(true);
-          const fetchedSimilarArtistData = await fetchSimilarArtists(
-            name,
-            mbid
-          );
+          const fetched = await fetcher(name, mbid);
 
-          setFetchedData(fetchedSimilarArtistData);
-          onFetchSimilarArtists(fetchedSimilarArtistData);
+          setFetchedData(fetched);
+          onFetched(fetched);
           setLoading(false);
         }
-      };
-
-      fetcher();
+      })();
     },
-    [shouldFetchSimilar]
+    [shouldFetch]
   );
 
   return (
     <li key={artistKey} onMouseEnter={onMouseEnter}>
       <div>fetching? {loading ? "true" : "false"}</div>
       <div>error? {error && error.message}</div>
-      <div>similarArtists? {similarArtists && similarArtists.length}</div>
-      <a href={url}>
-        <div>
-          {name} – {playcount} plays
-        </div>
-      </a>
-      <div>mbid: {mbid}</div>
-      <button onClick={() => setShouldFetchSimilar(true)}>similar</button>
+
+      {render(data, url, name, playcount)}
+
+      <button onClick={() => setShouldFetch(true)}>{buttonName}</button>
     </li>
   );
 };

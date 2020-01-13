@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Artist from "./artist";
+import RecentArtist from "./recentArtist";
 
 const ArtistList = props => {
   const { artists, onFetchSimilarArtists } = props;
@@ -14,12 +14,12 @@ const ArtistList = props => {
       <span>currently hovering over {hoveredArtist}</span>
       <ul>
         {artists.map((artist, key) => (
-          <Artist
+          <RecentArtist
             {...artist}
             key={key}
             artistKey={key}
             onMouseEnter={onMouseEnter(artist)}
-            onFetchSimilarArtists={onFetchSimilarArtists}
+            onFetched={onFetchSimilarArtists}
           />
         ))}
       </ul>
