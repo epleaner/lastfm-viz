@@ -1,4 +1,4 @@
-import ArtistSearch from "../../components/lastfm-viz/artistSearch";
+import ArtistSearchPanel from "../../components/lastfm-viz/artistSearch";
 import SelectedArtistPanel from "../../components/lastfm-viz/selectedArtistPanel";
 import { useState } from "react";
 
@@ -12,7 +12,7 @@ const LastFMPage = () => {
   return (
     <div>
       <SelectedArtistPanel artistFetchedData={artistFetchedData} />
-      <ArtistSearch onFetchSimilarArtists={onFetchSimilarArtists} />
+      <ArtistSearchPanel onFetchSimilarArtists={onFetchSimilarArtists} />
     </div>
   );
 };
