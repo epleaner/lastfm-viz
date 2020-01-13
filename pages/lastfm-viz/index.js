@@ -1,4 +1,4 @@
-import ArtistList from "./artistList";
+import ArtistList from "../../components/lastfm-viz/artistList";
 import useArtistFetch from "../../components/lastfm-viz/artistFetch";
 
 const LastFMPage = () => {
