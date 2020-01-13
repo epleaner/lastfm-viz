@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import SimilarArtistFetch from "../../components/lastfm-viz/similarArtistFetch";
+import { fetchSimilarArtists } from "../../api/lastfm";
 
 const Artist = props => {
   const {
@@ -24,7 +24,7 @@ const Artist = props => {
         if (shouldFetchSimilar) {
           setShouldFetchSimilar(false);
           setLoading(true);
-          const fetchedSimilarArtistData = await SimilarArtistFetch.fetchSimilar(
+          const fetchedSimilarArtistData = await fetchSimilarArtists(
             name,
             mbid
           );

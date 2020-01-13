@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ArtistTopAlbumsFetch from "../../components/lastfm-viz/artistTopAlbumsFetch";
+import { fetchTopAlbums } from "../../api/lastfm";
 
 const SimilarArtist = props => {
   const { artistKey, url, name, playcount, mbid, onFetchTopAlbums } = props;
@@ -8,7 +8,7 @@ const SimilarArtist = props => {
   const [shouldFetchTopAlbums, setShouldFetchTopAlbums] = useState(false);
   const [fetchedData, setFetchedData] = useState({});
 
-  const { error, topAlbums } = fetchedData;
+  const { error, data } = fetchedData;
 
   useEffect(
     () => {
@@ -16,10 +16,8 @@ const SimilarArtist = props => {
         if (shouldFetchTopAlbums) {
           setShouldFetchTopAlbums(false);
           setLoading(true);
-          const fetchedTopAlbumsData = await ArtistTopAlbumsFetch.fetchTopAlbums(
-            name,
-            mbid
-          );
+
+          const fetchedTopAlbumsData = await fetchTopAlbums(name, mbid);
 
           setFetchedData(fetchedTopAlbumsData);
           onFetchTopAlbums(fetchedTopAlbumsData);
@@ -36,7 +34,7 @@ const SimilarArtist = props => {
     <li key={artistKey}>
       <div>fetching? {loading ? "true" : "false"}</div>
       <div>error? {error && error.message}</div>
-      <div>topAlbums? {topAlbums && topAlbums.length}</div>
+      <div>topAlbums? {data && data.length}</div>
       <a href={url}>
         <div>{name}</div>
       </a>
