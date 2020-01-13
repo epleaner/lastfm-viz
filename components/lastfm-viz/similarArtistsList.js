@@ -1,6 +1,23 @@
+import SimilarArtist from "./similarArtist";
+
 const SimilarArtistsList = props => {
   const { artists } = props;
-  return <div>similar artists: {artists.length}</div>;
+  const onFetchTopAlbums = () => {
+    console.log("top albums fetched from similar artists list");
+  };
+
+  return (
+    <ul>
+      {artists.slice(0, 3).map((artist, key) => (
+        <SimilarArtist
+          {...artist}
+          key={key}
+          artistKey={key}
+          onFetchTopAlbums={onFetchTopAlbums}
+        />
+      ))}
+    </ul>
+  );
 };
 
 export default SimilarArtistsList;
