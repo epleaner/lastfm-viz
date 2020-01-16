@@ -10,9 +10,7 @@ const SimilarArtist = props => {
       buttonName={"top albums"}
       render={(data, url, name, playcount) => (
         <article>
-          <a href={url}>
-            <h1>{name}</h1>
-          </a>
+          <a href={url}>{name}</a>
         </article>
       )}
     />

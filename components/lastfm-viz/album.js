@@ -10,9 +10,7 @@ const Album = props => {
   return (
     <li>
       <article>
-        <h1>
-          <a href={url}>{name}</a>
-        </h1>
+        <a href={url}>{name}</a> ({playcount} plays on lastfm)
       </article>
     </li>
   );
