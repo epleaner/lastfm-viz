@@ -6,7 +6,7 @@ const Album = props => {
     playcount,
     url
   } = props;
-  console.log(props);
+
   return (
     <li>
       <article>
