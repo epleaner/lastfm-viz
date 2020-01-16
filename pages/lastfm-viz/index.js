@@ -4,16 +4,16 @@ import AlbumsPanel from "../../components/lastfm-viz/albumsPanel";
 import { useState } from "react";
 
 const LastFMPage = () => {
-  const [artistFetchedData, setArtistFetchedData] = useState();
+  const [similarArtistData, setSimilarArtistData] = useState();
 
-  const onFetchSimilarArtists = fetchedData => {
-    setArtistFetchedData(fetchedData);
+  const onFetchSimilarArtists = fetched => {
+    setSimilarArtistData(fetched);
   };
 
   return (
     <section className="column-list">
       <ArtistSearchPanel onFetchSimilarArtists={onFetchSimilarArtists} />
-      <SelectedArtistPanel data={artistFetchedData} />
+      <SelectedArtistPanel data={similarArtistData} />
       <AlbumsPanel />
 
       <style jsx>{`
