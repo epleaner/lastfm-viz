@@ -1,22 +1,14 @@
 import SimilarArtistsList from "./similarArtistsList";
-import EmptyPanel from "./emptyPanel";
-import ErrorPanel from "./errorPanel";
+import AsyncPanel from "./asyncPanel";
 
 const SelectedArtistPanel = props => {
-  const { data } = props;
-
-  if (!data) {
-    return <EmptyPanel />;
-  }
-
-  if (data.error) {
-    return <ErrorPanel error={data.error} />;
-  }
-
   return (
-    <section>
-      <SimilarArtistsList artists={data.data} {...props} />
-    </section>
+    <AsyncPanel
+      {...props}
+      render={(data, otherProps) => (
+        <SimilarArtistsList artists={data} {...otherProps} />
+      )}
+    />
   );
 };
 
