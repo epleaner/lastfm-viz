@@ -5,7 +5,7 @@ const createFetcher = (url, group, subgroup) => async (name, mbid) => {
   const { data, error } = await axios.get(url, {
     params: {
       mbid: mbid,
-      name: name,
+      artist: name,
       autocorrect: 1,
       api_key: APIKey,
       format: "json"
