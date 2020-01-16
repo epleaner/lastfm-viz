@@ -1,10 +1,11 @@
 import SimilarArtist from "./similarArtist";
+import List from "./list";
 
 const SimilarArtistsList = props => {
   const { artists, onFetchingAlbums, onFetchedAlbums } = props;
 
   return (
-    <ul>
+    <List>
       {artists.map((artist, key) => (
         <SimilarArtist
           {...artist}
@@ -14,7 +15,7 @@ const SimilarArtistsList = props => {
           onFetched={onFetchedAlbums}
         />
       ))}
-    </ul>
+    </List>
   );
 };
 

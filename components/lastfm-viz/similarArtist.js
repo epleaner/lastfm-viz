@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchTopAlbums } from "../../api/lastfm";
+import Anchor from "./anchor";
 import Artist from "./artist";
 
 const SimilarArtist = props => {
@@ -10,7 +11,7 @@ const SimilarArtist = props => {
       buttonName={"top albums"}
       render={(data, url, name, playcount) => (
         <article>
-          <a href={url}>{name}</a>
+          <Anchor href={url}>{name}</Anchor>
         </article>
       )}
     />

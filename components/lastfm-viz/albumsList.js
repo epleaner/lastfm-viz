@@ -1,14 +1,15 @@
 import Album from "./album";
+import List from "./list";
 
 const AlbumsList = props => {
   const { albums } = props;
 
   return (
-    <ul>
+    <List>
       {albums.map((album, key) => (
         <Album {...album} key={key} albumKey={key} />
       ))}
-    </ul>
+    </List>
   );
 };
 

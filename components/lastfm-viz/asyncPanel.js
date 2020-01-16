@@ -4,7 +4,7 @@ import Panel from "./panel";
 
 const AsyncPanel = props => {
   const { data, loading, render, ...otherProps } = props;
-  console.log(`loading? ${loading}`);
+
   if (loading) return <span>loading...</span>;
 
   if (!data) return <EmptyPanel />;
