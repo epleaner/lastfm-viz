@@ -2,7 +2,7 @@ import { useState } from "react";
 import RecentArtist from "./recentArtist";
 
 const RecentArtistsList = props => {
-  const { artists, onFetchSimilarArtists } = props;
+  const { artists, onFetchingSimilarArtists, onFetchedSimilarArtists } = props;
   const [hoveredArtist, setHoveredArtist] = useState();
 
   const onMouseEnter = ({ name }) => () => {
@@ -19,7 +19,8 @@ const RecentArtistsList = props => {
             key={key}
             artistKey={key}
             onMouseEnter={onMouseEnter(artist)}
-            onFetched={onFetchSimilarArtists}
+            onFetching={onFetchingSimilarArtists}
+            onFetched={onFetchedSimilarArtists}
           />
         ))}
       </ul>

@@ -10,12 +10,12 @@ const Artist = props => {
     mbid,
     onMouseEnter,
     fetcher,
+    onFetching,
     onFetched,
     buttonName,
     render
   } = props;
 
-  const [loading, setLoading] = useState(false);
   const [shouldFetch, setShouldFetch] = useState(false);
   const [fetchedData, setFetchedData] = useState({});
 
@@ -26,13 +26,12 @@ const Artist = props => {
       (async () => {
         if (shouldFetch) {
           setShouldFetch(false);
-          setLoading(true);
+          onFetching();
 
           const fetched = await fetcher(name, mbid);
 
           setFetchedData(fetched);
           onFetched(fetched);
-          setLoading(false);
         }
       })();
     },

@@ -4,25 +4,43 @@ import AlbumsPanel from "../../components/lastfm-viz/albumsPanel";
 import { useState } from "react";
 
 const LastFMPage = () => {
-  const [similarArtistData, setSimilarArtistData] = useState();
+  const [similarArtistsLoading, setSimilarArtistsLoading] = useState(false);
+  const [similarArtistsData, setSimilarArtistsData] = useState();
+
+  const [albumsLoading, setAlbumsLoading] = useState();
   const [albumsData, setAlbumsData] = useState();
 
-  const onFetchSimilarArtists = fetched => {
-    setSimilarArtistData(fetched);
+  const onFetchingSimilarArtists = () => {
+    setSimilarArtistsLoading(true);
   };
 
-  const onFetchAlbums = fetched => {
+  const onFetchedSimilarArtists = fetched => {
+    setSimilarArtistsLoading(false);
+    setSimilarArtistsData(fetched);
+  };
+
+  const onFetchingAlbums = () => {
+    setAlbumsLoading(true);
+  };
+
+  const onFetchedAlbums = fetched => {
+    setAlbumsLoading(false);
     setAlbumsData(fetched);
   };
 
   return (
     <section>
-      <RecentArtistsPanel onFetchSimilarArtists={onFetchSimilarArtists} />
-      <SimilarArtistsPanel
-        data={similarArtistData}
-        onFetchAlbums={onFetchAlbums}
+      <RecentArtistsPanel
+        onFetchingSimilarArtists={onFetchingSimilarArtists}
+        onFetchedSimilarArtists={onFetchedSimilarArtists}
       />
-      <AlbumsPanel data={albumsData} />
+      <SimilarArtistsPanel
+        data={similarArtistsData}
+        loading={similarArtistsLoading}
+        onFetchingAlbums={onFetchingAlbums}
+        onFetchedAlbums={onFetchedAlbums}
+      />
+      <AlbumsPanel loading={albumsLoading} data={albumsData} />
 
       <style jsx>{`
         display: grid;

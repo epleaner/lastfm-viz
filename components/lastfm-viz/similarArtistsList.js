@@ -1,7 +1,7 @@
 import SimilarArtist from "./similarArtist";
 
 const SimilarArtistsList = props => {
-  const { artists, onFetchAlbums } = props;
+  const { artists, onFetchingAlbums, onFetchedAlbums } = props;
 
   return (
     <ul>
@@ -10,7 +10,8 @@ const SimilarArtistsList = props => {
           {...artist}
           key={key}
           artistKey={key}
-          onFetched={onFetchAlbums}
+          onFetching={onFetchingAlbums}
+          onFetched={onFetchedAlbums}
         />
       ))}
     </ul>
