@@ -1,16 +1,57 @@
 import RecentArtistsList from "./recentArtistsList";
+import AsyncPanel from "./asyncPanel";
 import useArtistFetch from "./artistFetch";
+import { fetchUsersWeeklyCharts } from "../../api/lastfm";
+
+import { useState, useEffect } from "react";
 
 const RecentArtistsPanel = props => {
-  const { artists, loading, error } = useArtistFetch();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [shouldSearch, setShouldSearch] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  let content;
+  const [fetchedData, setFetchedData] = useState();
 
-  if (loading) content = <span>Loading...</span>;
-  else if (error) content = <span>Failed to fetch: ${error}</span>;
-  else content = <RecentArtistsList artists={artists} {...props} />;
+  useEffect(
+    () => {
+      (async () => {
+        if (shouldSearch) {
+          setShouldSearch(false);
+          setLoading(true);
 
-  return <section>{content}</section>;
+          const fetched = await fetchUsersWeeklyCharts(searchQuery);
+
+          setFetchedData(fetched);
+          setLoading(false);
+        }
+      })();
+    },
+    [shouldSearch]
+  );
+
+  return (
+    <section>
+      <form onSubmit={e => e.preventDefault() || setShouldSearch(true)}>
+        <input
+          type="text"
+          onChange={e => setSearchQuery(e.target.value)}
+          value={searchQuery}
+        />
+        <button type="submit">search</button>
+      </form>
+      {fetchedData ? (
+        <AsyncPanel
+          {...props}
+          data={fetchedData}
+          render={(data, otherProps) => (
+            <RecentArtistsList artists={data} {...otherProps} />
+          )}
+        />
+      ) : (
+        <span>Search for a user to see their weekly charts</span>
+      )}
+    </section>
+  );
 };
 
 export default RecentArtistsPanel;
