@@ -5,8 +5,8 @@ import { fetchUsersWeeklyCharts } from "../../api/lastfm";
 import { useState, useEffect } from "react";
 
 const RecentArtistsPanel = props => {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [shouldSearch, setShouldSearch] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("pleanut");
+  const [shouldSearch, setShouldSearch] = useState(true);
   const [loading, setLoading] = useState(false);
 
   const [fetchedData, setFetchedData] = useState();
@@ -44,7 +44,11 @@ const RecentArtistsPanel = props => {
           data={fetchedData}
           loading={loading}
           render={(data, otherProps) => (
-            <RecentArtistsList artists={data} {...otherProps} />
+            <RecentArtistsList
+              user={searchQuery}
+              artists={data}
+              {...otherProps}
+            />
           )}
         />
       ) : (
