@@ -7,13 +7,10 @@ const RecentArtist = props => {
     <Artist
       {...props}
       fetcher={fetchSimilarArtists}
-      buttonName={"similar"}
+      buttonName={"similar artists"}
       render={(data, url, name, playcount) => (
         <article>
-          <a href={url}>
-            <h1>{name}</h1>
-          </a>
-          <h2>{playcount} plays</h2>
+          <a href={url}>{name}</a> ({playcount} plays)
         </article>
       )}
     />

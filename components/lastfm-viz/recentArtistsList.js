@@ -11,7 +11,6 @@ const RecentArtistsList = props => {
 
   return (
     <section>
-      <span>currently hovering over {hoveredArtist}</span>
       <ul>
         {artists.map((artist, key) => (
           <RecentArtist
