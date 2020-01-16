@@ -1,7 +1,7 @@
 import { useState } from "react";
 import RecentArtist from "./recentArtist";
 
-const ArtistList = props => {
+const RecentArtistsList = props => {
   const { artists, onFetchSimilarArtists } = props;
   const [hoveredArtist, setHoveredArtist] = useState();
 
@@ -27,4 +27,4 @@ const ArtistList = props => {
   );
 };
 
-export default ArtistList;
+export default RecentArtistsList;

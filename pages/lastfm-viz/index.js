@@ -1,5 +1,5 @@
-import ArtistSearchPanel from "../../components/lastfm-viz/artistSearchPanel";
-import SelectedArtistPanel from "../../components/lastfm-viz/selectedArtistPanel";
+import RecentArtistsPanel from "../../components/lastfm-viz/recentArtistsPanel";
+import SimilarArtistsPanel from "../../components/lastfm-viz/similarArtistsPanel";
 import AlbumsPanel from "../../components/lastfm-viz/albumsPanel";
 import { useState } from "react";
 
@@ -16,20 +16,18 @@ const LastFMPage = () => {
   };
 
   return (
-    <section className="column-list">
-      <ArtistSearchPanel onFetchSimilarArtists={onFetchSimilarArtists} />
-      <SelectedArtistPanel
+    <section>
+      <RecentArtistsPanel onFetchSimilarArtists={onFetchSimilarArtists} />
+      <SimilarArtistsPanel
         data={similarArtistData}
         onFetchAlbums={onFetchAlbums}
       />
       <AlbumsPanel data={albumsData} />
 
       <style jsx>{`
-        .column-list {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-          align-items: flex-start;
-        }
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        align-items: flex-start;
       `}</style>
     </section>
   );
