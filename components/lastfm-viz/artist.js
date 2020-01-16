@@ -27,6 +27,7 @@ const Artist = props => {
         if (shouldFetch) {
           setShouldFetch(false);
           setLoading(true);
+
           const fetched = await fetcher(name, mbid);
 
           setFetchedData(fetched);
