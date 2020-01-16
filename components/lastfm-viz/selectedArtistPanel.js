@@ -3,19 +3,19 @@ import EmptyPanel from "./emptyPanel";
 import ErrorPanel from "./errorPanel";
 
 const SelectedArtistPanel = props => {
-  const { artistFetchedData } = props;
+  const { data } = props;
 
-  if (!artistFetchedData) {
+  if (!data) {
     return <EmptyPanel />;
   }
 
-  if (artistFetchedData.error) {
-    return <ErrorPanel error={artistFetchedData.error} />;
+  if (data.error) {
+    return <ErrorPanel error={data.error} />;
   }
 
   return (
     <section>
-      <SimilarArtistsList artists={artistFetchedData.data} />
+      <SimilarArtistsList artists={data.data} />
     </section>
   );
 };

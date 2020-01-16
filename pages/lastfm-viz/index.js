@@ -13,7 +13,7 @@ const LastFMPage = () => {
   return (
     <section className="column-list">
       <ArtistSearchPanel onFetchSimilarArtists={onFetchSimilarArtists} />
-      <SelectedArtistPanel artistFetchedData={artistFetchedData} />
+      <SelectedArtistPanel data={artistFetchedData} />
       <AlbumsPanel />
 
       <style jsx>{`
