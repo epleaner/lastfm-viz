@@ -8,7 +8,7 @@ const SimilarArtistsList = props => {
 
   return (
     <ul>
-      {artists.slice(0, 3).map((artist, key) => (
+      {artists.map((artist, key) => (
         <SimilarArtist
           {...artist}
           key={key}
