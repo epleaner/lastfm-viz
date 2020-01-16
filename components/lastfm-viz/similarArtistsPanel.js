@@ -1,7 +1,7 @@
 import SimilarArtistsList from "./similarArtistsList";
 import AsyncPanel from "./asyncPanel";
 
-const SelectedArtistPanel = props => {
+const SimilarArtistsPanel = props => {
   return (
     <AsyncPanel
       {...props}
@@ -12,4 +12,4 @@ const SelectedArtistPanel = props => {
   );
 };
 
-export default SelectedArtistPanel;
+export default SimilarArtistsPanel;
