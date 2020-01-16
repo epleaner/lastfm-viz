@@ -38,7 +38,7 @@ const RecentArtistsPanel = props => {
         />
         <button type="submit">search</button>
       </form>
-      {fetchedData ? (
+      {fetchedData || loading ? (
         <AsyncPanel
           {...props}
           data={fetchedData}
