@@ -11,11 +11,19 @@ const LastFMPage = () => {
   };
 
   return (
-    <div>
-      <AlbumsPanel />
-      <SelectedArtistPanel artistFetchedData={artistFetchedData} />
+    <section className="column-list">
       <ArtistSearchPanel onFetchSimilarArtists={onFetchSimilarArtists} />
-    </div>
+      <SelectedArtistPanel artistFetchedData={artistFetchedData} />
+      <AlbumsPanel />
+
+      <style jsx>{`
+        .column-list {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+          align-items: flex-start;
+        }
+      `}</style>
+    </section>
   );
 };
 

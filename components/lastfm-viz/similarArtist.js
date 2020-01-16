@@ -9,12 +9,12 @@ const SimilarArtist = props => {
       fetcher={fetchTopAlbums}
       buttonName={"top albums"}
       render={(data, url, name, playcount) => (
-        <div>
+        <article>
           <div>top albums? {data && data.length}</div>
           <a href={url}>
-            <div>{name}</div>
+            <h1>{name}</h1>
           </a>
-        </div>
+        </article>
       )}
     />
   );

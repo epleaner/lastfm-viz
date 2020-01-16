@@ -9,14 +9,12 @@ const RecentArtist = props => {
       fetcher={fetchSimilarArtists}
       buttonName={"similar"}
       render={(data, url, name, playcount) => (
-        <div>
-          <div>similarArtists? {data && data.length}</div>
+        <article>
           <a href={url}>
-            <div>
-              {name} – {playcount} plays
-            </div>
+            <h1>{name}</h1>
           </a>
-        </div>
+          <h2>{playcount} plays</h2>
+        </article>
       )}
     />
   );

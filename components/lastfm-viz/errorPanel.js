@@ -2,7 +2,7 @@ const ErrorPanel = props => {
   const { error } = props;
   const { message } = error;
 
-  return <div>i am an error panel with error message: {message} </div>;
+  return <span>i am an error panel with error message: {message} </span>;
 };
 
 export default ErrorPanel;

@@ -13,7 +13,11 @@ const SelectedArtistPanel = props => {
     return <ErrorPanel error={artistFetchedData.error} />;
   }
 
-  return <SimilarArtistsList artists={artistFetchedData.data} />;
+  return (
+    <section>
+      <SimilarArtistsList artists={artistFetchedData.data} />
+    </section>
+  );
 };
 
 export default SelectedArtistPanel;

@@ -2,10 +2,10 @@ import EmptyPanel from "./emptyPanel";
 
 const AlbumsPanel = () => {
   return (
-    <div>
+    <section>
       for albums
       <EmptyPanel />
-    </div>
+    </section>
   );
 };
 

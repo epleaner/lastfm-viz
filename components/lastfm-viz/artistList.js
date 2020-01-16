@@ -10,7 +10,7 @@ const ArtistList = props => {
   };
 
   return (
-    <div>
+    <section>
       <span>currently hovering over {hoveredArtist}</span>
       <ul>
         {artists.map((artist, key) => (
@@ -23,7 +23,7 @@ const ArtistList = props => {
           />
         ))}
       </ul>
-    </div>
+    </section>
   );
 };
 
