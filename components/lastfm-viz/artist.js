@@ -42,7 +42,19 @@ const Artist = props => {
     <li key={artistKey} onMouseEnter={onMouseEnter}>
       {render(data, url, name, playcount)}
 
-      <button onClick={() => setShouldFetch(true)}>{buttonName}</button>
+      <button onClick={() => setShouldFetch(true)}>
+        {buttonName} {">"}
+      </button>
+
+      <style jsx>{`
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: flex-start;
+
+        button:hover {
+          text-decoration: underline;
+        }
+      `}</style>
     </li>
   );
 };
