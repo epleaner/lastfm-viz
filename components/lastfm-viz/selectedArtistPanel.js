@@ -15,7 +15,7 @@ const SelectedArtistPanel = props => {
 
   return (
     <section>
-      <SimilarArtistsList artists={data.data} />
+      <SimilarArtistsList artists={data.data} {...props} />
     </section>
   );
 };

@@ -5,16 +5,24 @@ import { useState } from "react";
 
 const LastFMPage = () => {
   const [similarArtistData, setSimilarArtistData] = useState();
+  const [albumsData, setAlbumsData] = useState();
 
   const onFetchSimilarArtists = fetched => {
     setSimilarArtistData(fetched);
   };
 
+  const onFetchAlbums = fetched => {
+    setAlbumsData(fetched);
+  };
+
   return (
     <section className="column-list">
       <ArtistSearchPanel onFetchSimilarArtists={onFetchSimilarArtists} />
-      <SelectedArtistPanel data={similarArtistData} />
-      <AlbumsPanel />
+      <SelectedArtistPanel
+        data={similarArtistData}
+        onFetchAlbums={onFetchAlbums}
+      />
+      <AlbumsPanel data={albumsData} />
 
       <style jsx>{`
         .column-list {

@@ -1,10 +1,25 @@
+import AlbumsList from "./albumsList";
 import EmptyPanel from "./emptyPanel";
+import ErrorPanel from "./errorPanel";
 
-const AlbumsPanel = () => {
+const AlbumsPanel = props => {
+  const { data } = props;
+
+  if (!data) {
+    return <EmptyPanel />;
+  }
+
+  if (data.error) {
+    return <ErrorPanel error={data.error} />;
+  }
+
+  const sortedData = data.data.sort(
+    ({ playcountA }, { playcountB }) => playcountB >= playcountA
+  );
+
   return (
     <section>
-      for albums
-      <EmptyPanel />
+      <AlbumsList albums={sortedData} {...props} />
     </section>
   );
 };
