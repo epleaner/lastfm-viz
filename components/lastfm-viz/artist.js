@@ -40,9 +40,6 @@ const Artist = props => {
 
   return (
     <li key={artistKey} onMouseEnter={onMouseEnter}>
-      <div>fetching? {loading ? "true" : "false"}</div>
-      <div>error? {error && error.message}</div>
-
       {render(data, url, name, playcount)}
 
       <button onClick={() => setShouldFetch(true)}>{buttonName}</button>
