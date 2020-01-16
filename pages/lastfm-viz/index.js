@@ -1,4 +1,4 @@
-import ArtistSearchPanel from "../../components/lastfm-viz/artistSearch";
+import ArtistSearchPanel from "../../components/lastfm-viz/artistSearchPanel";
 import SelectedArtistPanel from "../../components/lastfm-viz/selectedArtistPanel";
 import { useState } from "react";
 
