@@ -1,6 +1,5 @@
 import RecentArtistsList from "./recentArtistsList";
 import AsyncPanel from "./asyncPanel";
-import useArtistFetch from "./artistFetch";
 import { fetchUsersWeeklyCharts } from "../../api/lastfm";
 
 import { useState, useEffect } from "react";
@@ -43,6 +42,7 @@ const RecentArtistsPanel = props => {
         <AsyncPanel
           {...props}
           data={fetchedData}
+          loading={loading}
           render={(data, otherProps) => (
             <RecentArtistsList artists={data} {...otherProps} />
           )}
