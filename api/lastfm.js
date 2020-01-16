@@ -4,7 +4,6 @@ import { APIKey } from "../secrets.json";
 const createFetcher = (url, group, subgroup) => async (name, mbid) => {
   const { data, error } = await axios.get(url, {
     params: {
-      mbid: mbid,
       artist: name,
       autocorrect: 1,
       api_key: APIKey,
