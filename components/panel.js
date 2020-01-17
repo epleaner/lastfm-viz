@@ -1,9 +1,16 @@
-const Panel = ({ children }) => (
-  <section>
-    {children}
+const Panel = ({ header, body }) => (
+  <section className="container">
+    {header}
+    <section className="body">{body}</section>
     <style jsx>{`
-      height: 100vh;
-      overflow: auto;
+      .container {
+        display: grid;
+        grid-template-rows: 40px 1fr;
+      }
+      .body {
+        height: 100vh;
+        overflow: auto;
+      }
     `}</style>
   </section>
 );

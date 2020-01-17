@@ -3,7 +3,7 @@ import ErrorPanel from "./errorPanel";
 import Panel from "./panel";
 
 const AsyncPanel = props => {
-  const { data, loading, render, ...otherProps } = props;
+  const { data, loading, header, body, ...otherProps } = props;
 
   if (loading) return <span>loading...</span>;
 
@@ -11,7 +11,7 @@ const AsyncPanel = props => {
 
   if (data.error) return <ErrorPanel error={data.error} />;
 
-  return <Panel>{render(data.data, otherProps)}</Panel>;
+  return <Panel header={header} body={body(data.data, otherProps)} />;
 };
 
 export default AsyncPanel;
