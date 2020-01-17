@@ -15,8 +15,18 @@ const SearchForm = props => {
         type="text"
         onChange={e => setSearchQuery(e.target.value)}
         value={searchQuery}
+        placeholder={"search for a lastfm user"}
       />
-      <button type="submit">search</button>
+      <button type="submit">></button>
+
+      <style jsx>{`
+        input {
+          border: none;
+          background: transparent;
+          border-bottom: 1px solid black;
+          outline: none;
+        }
+      `}</style>
     </form>
   );
 };
