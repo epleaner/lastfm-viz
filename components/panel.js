@@ -5,10 +5,10 @@ const Panel = ({ header, body }) => (
     <style jsx>{`
       .container {
         display: grid;
-        grid-template-rows: 40px 1fr;
+        grid-template-rows: 40px auto;
+        height: 90vh;
       }
       .body {
-        height: 100vh;
         overflow: auto;
       }
     `}</style>
