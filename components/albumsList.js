@@ -13,6 +13,9 @@ const AlbumsList = props => {
             onMouseOver={() => {
               setHoveredAlbum(album);
             }}
+            onMouseLeave={() => {
+              setHoveredAlbum();
+            }}
             coverOnly={coversOnly}
             {...album}
             key={key}

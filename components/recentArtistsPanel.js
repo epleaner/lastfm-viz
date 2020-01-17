@@ -38,9 +38,7 @@ const RecentArtistsPanel = props => {
             <RecentArtistsList artists={data} {...otherProps} />
           )}
         />
-      ) : (
-        <span>Search for a user to see their weekly charts</span>
-      )}
+      ) : null}
     </section>
   );
 };

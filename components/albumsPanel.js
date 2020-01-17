@@ -1,8 +1,10 @@
 import AlbumsList from "./albumsList";
 import AsyncPanel from "./asyncPanel";
+import { useState } from "react";
 
 const AlbumsPanel = props => {
   const { selectedArtist } = props;
+  const [coversOnly, setCoversOnly] = useState(false);
 
   const sortByPlaycount = (
     { playcount: playcountA },
@@ -12,11 +14,22 @@ const AlbumsPanel = props => {
   return (
     <AsyncPanel
       {...props}
-      header={<h1>albums of {selectedArtist}</h1>}
+      header={
+        <div>
+          <h1>albums of {selectedArtist}</h1>
+          <button onClick={() => setCoversOnly(!coversOnly)}>
+            {coversOnly ? "show list" : "show covers"}
+          </button>
+        </div>
+      }
       body={(data, otherProps) => {
         const sortedData = data.sort(sortByPlaycount);
         return (
-          <AlbumsList coversOnly={true} albums={sortedData} {...otherProps} />
+          <AlbumsList
+            coversOnly={coversOnly}
+            albums={sortedData}
+            {...otherProps}
+          />
         );
       }}
     />

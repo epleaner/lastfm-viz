@@ -6,8 +6,8 @@ import AlbumsPanel from "../../components/albumsPanel";
 import { useState } from "react";
 
 const LastFMPage = () => {
-  const [shouldSearch, setShouldSearch] = useState(true);
-  const [searchQuery, setSearchQuery] = useState("pleanut");
+  const [shouldSearch, setShouldSearch] = useState(false);
+  const [searchQuery, setSearchQuery] = useState();
 
   const [selectedArtistForSimilar, setSelectedArtistForSimilar] = useState();
   const [similarArtistsLoading, setSimilarArtistsLoading] = useState(false);
