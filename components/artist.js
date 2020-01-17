@@ -26,7 +26,7 @@ const Artist = props => {
       (async () => {
         if (shouldFetch) {
           setShouldFetch(false);
-          onFetching();
+          onFetching(name);
 
           const fetched = await fetcher(name, mbid);
 

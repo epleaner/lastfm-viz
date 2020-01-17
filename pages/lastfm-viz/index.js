@@ -8,9 +8,11 @@ const LastFMPage = () => {
   const [shouldSearch, setShouldSearch] = useState(true);
   const [searchQuery, setSearchQuery] = useState("pleanut");
 
+  const [selectedArtistForSimilar, setSelectedArtistForSimilar] = useState();
   const [similarArtistsLoading, setSimilarArtistsLoading] = useState(false);
   const [similarArtistsData, setSimilarArtistsData] = useState();
 
+  const [selectedArtistForAlbums, setSelectedArtistForAlbums] = useState();
   const [albumsLoading, setAlbumsLoading] = useState();
   const [albumsData, setAlbumsData] = useState();
 
@@ -23,7 +25,8 @@ const LastFMPage = () => {
     setShouldSearch(false);
   };
 
-  const onFetchingSimilarArtists = () => {
+  const onFetchingSimilarArtists = artist => {
+    setSelectedArtistForSimilar(artist);
     setSimilarArtistsLoading(true);
   };
 
@@ -32,7 +35,8 @@ const LastFMPage = () => {
     setSimilarArtistsData(fetched);
   };
 
-  const onFetchingAlbums = () => {
+  const onFetchingAlbums = artist => {
+    setSelectedArtistForAlbums(artist);
     setAlbumsLoading(true);
   };
 
@@ -44,26 +48,33 @@ const LastFMPage = () => {
   return (
     <section>
       <Header onSearchSubmit={onSearchSubmit} />
-      <RecentArtistsPanel
-        searchQuery={searchQuery}
-        shouldSearch={shouldSearch}
-        onSearch={onSearch}
-        onFetchingSimilarArtists={onFetchingSimilarArtists}
-        onFetchedSimilarArtists={onFetchedSimilarArtists}
-      />
-      <SimilarArtistsPanel
-        data={similarArtistsData}
-        loading={similarArtistsLoading}
-        onFetchingAlbums={onFetchingAlbums}
-        onFetchedAlbums={onFetchedAlbums}
-      />
-      <AlbumsPanel loading={albumsLoading} data={albumsData} />
+      <section>
+        <RecentArtistsPanel
+          searchQuery={searchQuery}
+          shouldSearch={shouldSearch}
+          onSearch={onSearch}
+          onFetchingSimilarArtists={onFetchingSimilarArtists}
+          onFetchedSimilarArtists={onFetchedSimilarArtists}
+        />
+        <SimilarArtistsPanel
+          selectedArtist={selectedArtistForSimilar}
+          data={similarArtistsData}
+          loading={similarArtistsLoading}
+          onFetchingAlbums={onFetchingAlbums}
+          onFetchedAlbums={onFetchedAlbums}
+        />
+        <AlbumsPanel
+          selectedArtist={selectedArtistForAlbums}
+          loading={albumsLoading}
+          data={albumsData}
+        />
 
-      <style jsx>{`
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        align-items: flex-start;
-      `}</style>
+        <style jsx>{`
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+          align-items: flex-start;
+        `}</style>
+      </section>
     </section>
   );
 };

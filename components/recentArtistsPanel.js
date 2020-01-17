@@ -34,11 +34,14 @@ const RecentArtistsPanel = props => {
           data={fetchedData}
           loading={loading}
           render={(data, otherProps) => (
-            <RecentArtistsList
-              user={searchQuery}
-              artists={data}
-              {...otherProps}
-            />
+            <article>
+              <h1>this week's listening for {searchQuery}</h1>
+              <RecentArtistsList artists={data} {...otherProps} />
+              <style jsx>{`
+                display: grid;
+                grid-template-rows: 40px 1fr;
+              `}</style>
+            </article>
           )}
         />
       ) : (

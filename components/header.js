@@ -2,9 +2,14 @@ import Link from "next/link";
 import SearchForm from "./searchForm";
 
 const Header = ({ onSearchSubmit }) => (
-  <div>
+  <section>
     <SearchForm onSubmit={onSearchSubmit} />
-  </div>
+    <style jsx>{`
+      display: grid;
+      justify-items: center;
+      repeat(auto-fit, minmax(240px, 1fr));
+    `}</style>
+  </section>
 );
 
 export default Header;
