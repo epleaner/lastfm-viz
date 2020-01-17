@@ -1,20 +1,9 @@
 import Link from "next/link";
+import SearchForm from "./searchForm";
 
-const linkStyle = {
-  marginRight: 15
-};
-
-const Header = () => (
+const Header = ({ onSearchSubmit }) => (
   <div>
-    <Link href="/">
-      <a style={linkStyle}>home</a>
-    </Link>
-    <Link href="/about">
-      <a style={linkStyle}>about</a>
-    </Link>
-    <Link href="/lastfm-viz">
-      <a style={linkStyle}>lastfm</a>
-    </Link>
+    <SearchForm onSubmit={onSearchSubmit} />
   </div>
 );
 

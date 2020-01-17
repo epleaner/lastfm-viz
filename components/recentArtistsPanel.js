@@ -5,17 +5,15 @@ import { fetchUsersWeeklyCharts } from "../api/lastfm";
 import { useState, useEffect } from "react";
 
 const RecentArtistsPanel = props => {
-  const [searchQuery, setSearchQuery] = useState("pleanut");
-  const [shouldSearch, setShouldSearch] = useState(true);
+  const { searchQuery, shouldSearch, onSearch } = props;
   const [loading, setLoading] = useState(false);
-
   const [fetchedData, setFetchedData] = useState();
 
   useEffect(
     () => {
       (async () => {
         if (shouldSearch) {
-          setShouldSearch(false);
+          onSearch();
           setLoading(true);
 
           const fetched = await fetchUsersWeeklyCharts(searchQuery);
@@ -30,14 +28,6 @@ const RecentArtistsPanel = props => {
 
   return (
     <section>
-      <form onSubmit={e => e.preventDefault() || setShouldSearch(true)}>
-        <input
-          type="text"
-          onChange={e => setSearchQuery(e.target.value)}
-          value={searchQuery}
-        />
-        <button type="submit">search</button>
-      </form>
       {fetchedData || loading ? (
         <AsyncPanel
           {...props}
