@@ -4,8 +4,24 @@ const Album = props => {
     image,
     name,
     playcount,
-    url
+    url,
+    coverOnly,
+    onMouseOver
   } = props;
+
+  const smallImageUrl = image[1]["#text"];
+
+  if (coverOnly)
+    if (smallImageUrl.length > 0)
+      return (
+        <li onMouseOver={onMouseOver}>
+          <figure>
+            <img src={smallImageUrl} alt={`${name} – ${artistName}`} />
+          </figure>
+        </li>
+      );
+    else return null;
+
   return (
     <li>
       <article>

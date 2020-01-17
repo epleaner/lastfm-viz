@@ -39,6 +39,7 @@ const LastFMPage = () => {
   };
 
   const onFetchingAlbums = artist => {
+    setAlbumsData();
     setSelectedArtistForAlbums(artist);
     setAlbumsLoading(true);
   };

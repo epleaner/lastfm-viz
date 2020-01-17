@@ -15,7 +15,9 @@ const AlbumsPanel = props => {
       header={<h1>albums of {selectedArtist}</h1>}
       body={(data, otherProps) => {
         const sortedData = data.sort(sortByPlaycount);
-        return <AlbumsList albums={sortedData} {...otherProps} />;
+        return (
+          <AlbumsList coversOnly={true} albums={sortedData} {...otherProps} />
+        );
       }}
     />
   );
