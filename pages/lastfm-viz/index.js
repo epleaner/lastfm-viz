@@ -1,6 +1,6 @@
-import RecentArtistsPanel from "../../components/lastfm-viz/recentArtistsPanel";
-import SimilarArtistsPanel from "../../components/lastfm-viz/similarArtistsPanel";
-import AlbumsPanel from "../../components/lastfm-viz/albumsPanel";
+import RecentArtistsPanel from "../../components/recentArtistsPanel";
+import SimilarArtistsPanel from "../../components/similarArtistsPanel";
+import AlbumsPanel from "../../components/albumsPanel";
 import { useState } from "react";
 
 const LastFMPage = () => {

@@ -1,6 +1,6 @@
 import RecentArtistsList from "./recentArtistsList";
 import AsyncPanel from "./asyncPanel";
-import { fetchUsersWeeklyCharts } from "../../api/lastfm";
+import { fetchUsersWeeklyCharts } from "../api/lastfm";
 
 import { useState, useEffect } from "react";
 

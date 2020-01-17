@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchSimilarArtists } from "../../api/lastfm";
+import { fetchSimilarArtists } from "../api/lastfm";
 import Artist from "./artist";
 
 const RecentArtist = props => {
