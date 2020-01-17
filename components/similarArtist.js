@@ -11,6 +11,11 @@ const SimilarArtist = props => {
       render={(data, url, name, playcount) => (
         <article>
           <a href={url}>{name}</a>
+          <style jsx>{`
+            a:hover {
+              text-decoration: underline;
+            }
+          `}</style>
         </article>
       )}
     />

@@ -12,7 +12,7 @@ const AlbumsPanel = props => {
   return (
     <AsyncPanel
       {...props}
-      header={<h1>Albums of {selectedArtist}</h1>}
+      header={<h1>albums of {selectedArtist}</h1>}
       body={(data, otherProps) => {
         const sortedData = data.sort(sortByPlaycount);
         return <AlbumsList albums={sortedData} {...otherProps} />;
