@@ -1,6 +1,5 @@
 import { useState } from "react";
 import RecentArtist from "./recentArtist";
-import List from "./list";
 
 const RecentArtistsList = props => {
   const {
@@ -18,7 +17,7 @@ const RecentArtistsList = props => {
   return (
     <section>
       <h1>this week's listening for {user}</h1>
-      <List>
+      <ul>
         {artists.map((artist, key) => (
           <RecentArtist
             {...artist}
@@ -29,7 +28,7 @@ const RecentArtistsList = props => {
             onFetched={onFetchedSimilarArtists}
           />
         ))}
-      </List>
+      </ul>
     </section>
   );
 };

@@ -1,5 +1,3 @@
-import Anchor from "./anchor";
-
 const Album = props => {
   const {
     artist: { name: artistName, url: artistUrl },
@@ -12,7 +10,7 @@ const Album = props => {
   return (
     <li>
       <article>
-        <Anchor href={url}>{name}</Anchor> ({playcount} plays on lastfm)
+        <a href={url}>{name}</a> ({playcount} plays on lastfm)
       </article>
     </li>
   );
