@@ -20,6 +20,8 @@ const LastFMPage = () => {
   const onSearchSubmit = query => {
     setSearchQuery(query);
     setShouldSearch(true);
+    setSimilarArtistsData();
+    setAlbumsData();
   };
 
   const onSearch = () => {
