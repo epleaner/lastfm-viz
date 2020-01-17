@@ -17,7 +17,7 @@ const SearchForm = props => {
         value={searchQuery}
         placeholder={"search for a lastfm user"}
       />
-      <button type="submit">></button>
+      <button type="submit">»</button>
 
       <style jsx>{`
         input {

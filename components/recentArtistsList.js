@@ -2,7 +2,12 @@ import { useState } from "react";
 import RecentArtist from "./recentArtist";
 
 const RecentArtistsList = props => {
-  const { artists, onFetchingSimilarArtists, onFetchedSimilarArtists } = props;
+  const {
+    artists,
+    selectedArtistForSimilar,
+    onFetchingSimilarArtists,
+    onFetchedSimilarArtists
+  } = props;
 
   return (
     <section>
@@ -12,6 +17,7 @@ const RecentArtistsList = props => {
             {...artist}
             key={key}
             artistKey={key}
+            isSelected={selectedArtistForSimilar === artist.name}
             onFetching={onFetchingSimilarArtists}
             onFetched={onFetchedSimilarArtists}
           />

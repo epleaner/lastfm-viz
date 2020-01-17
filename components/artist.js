@@ -13,6 +13,7 @@ const Artist = props => {
     onFetching,
     onFetched,
     buttonName,
+    isSelected,
     render
   } = props;
 
@@ -41,9 +42,9 @@ const Artist = props => {
   return (
     <li key={artistKey} onMouseEnter={onMouseEnter}>
       {render(data, url, name, playcount)}
-
-      <button onClick={() => setShouldFetch(true)}>{">"}</button>
-
+      <button onClick={() => setShouldFetch(true)}>
+        {isSelected ? "⧕" : ">"}
+      </button>
       <style jsx>{`
         display: grid;
         grid-template-columns: 1fr 1fr;

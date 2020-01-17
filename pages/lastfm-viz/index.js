@@ -56,11 +56,13 @@ const LastFMPage = () => {
           searchQuery={searchQuery}
           shouldSearch={shouldSearch}
           onSearch={onSearch}
+          selectedArtistForSimilar={selectedArtistForSimilar}
           onFetchingSimilarArtists={onFetchingSimilarArtists}
           onFetchedSimilarArtists={onFetchedSimilarArtists}
         />
         <SimilarArtistsPanel
-          selectedArtist={selectedArtistForSimilar}
+          selectedArtistForSimilar={selectedArtistForSimilar}
+          selectedArtistForAlbums={selectedArtistForAlbums}
           data={similarArtistsData}
           loading={similarArtistsLoading}
           onFetchingAlbums={onFetchingAlbums}
